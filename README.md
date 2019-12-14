@@ -1,2 +1,2 @@
-# pytorch-multilabel-balanced-sampler
-PyTorch sampler that outputs roughly balanced batches with support for multilabel datasets
+# PyTorch Multilabel Balanced Sampler
+PyTorch sampler that outputs roughly balanced batches with support for multilabel datasets.
