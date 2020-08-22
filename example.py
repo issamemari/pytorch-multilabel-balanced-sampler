@@ -14,7 +14,7 @@ class RandomDataset(Dataset):
         self.n_features = 100
         self.n_classes = 10
         self.X = np.random.random([self.n_samples, self.n_features])
-        self.y = (np.random.random([self.n_samples, self.n_classes]) > 0.5).astype(int)
+        self.y = (np.random.random([self.n_samples, self.n_classes]) > 0.9).astype(int)
 
     def __len__(self):
         return 1000
