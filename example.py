@@ -8,13 +8,13 @@ from torch.autograd import Variable
 
 
 class RandomDataset(Dataset):
-    def __init__(self, n_samples, n_features, n_labels, labels_only=False):
+    def __init__(self, n_examples, n_features, n_labels, labels_only=False):
         self.labels_only = labels_only
-        self.n_samples = 1000
+        self.n_examples = 1000
         self.n_features = 100
         self.n_classes = 10
-        self.X = np.random.random([self.n_samples, self.n_features])
-        self.y = (np.random.random([self.n_samples, self.n_classes]) > 0.9).astype(int)
+        self.X = np.random.random([self.n_examples, self.n_features])
+        self.y = (np.random.random([self.n_examples, self.n_classes]) > 0.9).astype(int)
 
     def __len__(self):
         return 1000
