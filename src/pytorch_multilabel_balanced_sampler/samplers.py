@@ -1,5 +1,5 @@
 import random
-from typing import Iterator, Sequence
+from typing import Iterator, Optional, Sequence
 
 import torch
 from torch.utils.data.sampler import Sampler
@@ -8,7 +8,9 @@ from .validation import validate_inputs
 
 
 class BaseMultilabelBalancedRandomSampler(Sampler[int]):
-    def __init__(self, labels: torch.Tensor, indices: Sequence[int]) -> None:
+    def __init__(
+        self, labels: torch.Tensor, indices: Optional[Sequence[int]] = None
+    ) -> None:
         """
         Args:
             labels: A 2D tensor of shape (n_examples, n_classes) containing the one-hot
