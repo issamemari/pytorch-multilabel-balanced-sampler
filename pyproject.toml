@@ -1,6 +1,6 @@
 [project]
 name = "pytorch-multilabel-balanced-sampler"
-version = "0.1.2"
+version = "0.1.3"
 description = "PyTorch samplers that output roughly balanced batches with support for multilabel datasets."
 authors = [
     {name = "Issa Memari", email = "issa.memari@gmail.com"},

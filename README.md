@@ -2,11 +2,6 @@
 
 This package provides samplers to fetch data samples from multilabel datasets in a balanced manner. Balanced sampling from multilabel datasets can be especially useful to handle class imbalance issues.
 
-### Dependencies
-
-- torch
-- random
-
 ### Samplers
 
 - `BaseMultilabelBalancedRandomSampler`: This is the base class for all the provided samplers. It initializes the basic structure required for sampling, such as class indices.
@@ -18,6 +13,14 @@ This package provides samplers to fetch data samples from multilabel datasets in
 - `LeastSampledClassSampler`: Chooses the class with the least number of samples fetched so far and retrieves a random example from that class.
 
 ### Usage
+
+#### Installation:
+
+This package is installable via pip:
+
+```shell
+pip install pytorch-multilabel-balanced-sampler
+```
 
 #### Initialization:
 
