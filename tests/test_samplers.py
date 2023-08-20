@@ -16,6 +16,8 @@ def test_sampler(sampler):
 
     indices = torch.randperm(len(labels))[:50].tolist()
 
-    samples = [next(iter(sampler(labels, indices))) for _ in range(len(indices))]
+    sampler = iter(sampler(labels, indices))
+
+    samples = [next(sampler) for _ in range(len(indices))]
 
     assert all([sample in indices for sample in samples])
