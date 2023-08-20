@@ -27,7 +27,7 @@ class BaseMultilabelBalancedSampler(Sampler[int]):
         self.class_indices = []
         for class_ in range(self.num_classes):
             self.class_indices.append(
-                torch.nonzero(self.labels[indices, class_]).squeeze().tolist()
+                torch.nonzero(self.labels[self.indices, class_]).flatten().tolist()
             )
 
     def __iter__(self) -> Iterator[int]:
