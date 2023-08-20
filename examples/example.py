@@ -4,7 +4,10 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader, Dataset
 from torch.utils.data.sampler import SubsetRandomSampler
 
-from pytorch_multilabel_balanced_sampler import LeastSampledClassSampler
+from pytorch_multilabel_balanced_sampler import (
+    LeastSampledClassSampler,
+    RandomClassSampler,
+)
 
 
 class RandomMultilabelDataset(Dataset):
@@ -34,7 +37,7 @@ def get_data_loaders(batch_size, val_size):
     split = int(np.floor(val_size * len(dataset)))
     train_idx, validate_idx = indices[split:], indices[:split]
 
-    train_sampler = LeastSampledClassSampler(dataset.y, train_idx)
+    train_sampler = RandomClassSampler(dataset.y, train_idx)
     validate_sampler = SubsetRandomSampler(validate_idx)
 
     # Create data loaders

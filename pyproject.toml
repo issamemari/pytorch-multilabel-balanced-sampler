@@ -17,4 +17,5 @@ build-backend = "pdm.backend"
 [tool.pdm.dev-dependencies]
 test = [
     "pytest>=7.4.0",
+    "numpy>=1.24.4",
 ]

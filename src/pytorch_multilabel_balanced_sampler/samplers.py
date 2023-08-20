@@ -7,7 +7,7 @@ from torch.utils.data.sampler import Sampler
 from .validation import validate_inputs
 
 
-class BaseMultilabelBalancedRandomSampler(Sampler[int]):
+class BaseMultilabelBalancedSampler(Sampler[int]):
     def __init__(
         self, labels: torch.Tensor, indices: Optional[Sequence[int]] = None
     ) -> None:
@@ -50,7 +50,7 @@ class BaseMultilabelBalancedRandomSampler(Sampler[int]):
         return len(self.indices)
 
 
-class RandomClassSampler(BaseMultilabelBalancedRandomSampler):
+class RandomClassSampler(BaseMultilabelBalancedSampler):
     """
     Chooses a class randomly, then chooses an example from that class randomly.
     """
@@ -60,7 +60,7 @@ class RandomClassSampler(BaseMultilabelBalancedRandomSampler):
         return random.choice(self.class_indices[class_])
 
 
-class ClassCycleSampler(BaseMultilabelBalancedRandomSampler):
+class ClassCycleSampler(BaseMultilabelBalancedSampler):
     """
     Cycles through classes, choosing randomly an example from each class in turn.
     """
@@ -75,7 +75,7 @@ class ClassCycleSampler(BaseMultilabelBalancedRandomSampler):
         return random.choice(self.class_indices[class_])
 
 
-class LeastSampledClassSampler(BaseMultilabelBalancedRandomSampler):
+class LeastSampledClassSampler(BaseMultilabelBalancedSampler):
     """
     Chooses the class with the least number of samples so far, then chooses an example
     from that class randomly.
