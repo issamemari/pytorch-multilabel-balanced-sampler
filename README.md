@@ -27,7 +27,7 @@ For all samplers, the initialization arguments are:
 - `indices`: A sequence of integers representing the indices of the dataset. Default is the range of the dataset size.
 
 ```python
-from samplers import RandomClassSampler, ClassCycleSampler, LeastSampledClassSampler
+from pytorch_multilabel_balanced_sampler.samplers import RandomClassSampler, ClassCycleSampler, LeastSampledClassSampler
 
 sampler1 = RandomClassSampler(labels=my_labels, indices=my_indices)
 sampler2 = ClassCycleSampler(labels=my_labels)
