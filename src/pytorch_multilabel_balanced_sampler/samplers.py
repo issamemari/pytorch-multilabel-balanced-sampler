@@ -91,8 +91,6 @@ class LeastSampledClassSampler(BaseMultilabelBalancedSampler):
 
         chosen_index = random.choice(self.class_indices[chosen_class])
 
-        for class_, indicator in enumerate(self.labels[self.indices[chosen_index]]):
-            if indicator == 1:
-                self.counts[class_] += 1
+        self.counts += (self.labels[self.indices[chosen_index]] == 1).int()
 
         return chosen_index
